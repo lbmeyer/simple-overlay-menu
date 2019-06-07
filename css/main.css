@@ -74,6 +74,12 @@ html a {
   font-size: 4rem;
 }
 
+@media (max-width: 600px) {
+  .hero .section-hero h1 {
+    font-size: 3rem;
+  }
+}
+
 .hero .section-hero h1::before {
   padding-top: 10px;
   content: ' ';
@@ -127,10 +133,19 @@ html a {
   padding: 0;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (25%)[4];
-      grid-template-columns: repeat(4, 25%);
+  -ms-grid-columns: (minmax(12rem, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
   width: 80%;
   text-align: center;
+}
+
+@media (max-width: 960px) {
+  .overlay-nav ul {
+    grid-gap: 30px;
+  }
+  .overlay-nav ul .list-items span {
+    margin-top: 10px;
+  }
 }
 
 .overlay-nav li {

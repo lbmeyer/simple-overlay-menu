@@ -55,6 +55,10 @@ html {
       margin: 1rem auto;
       font-size: 4rem;
 
+      @media (max-width: 600px) {
+        font-size: 3rem;
+      }
+
       &::before {
         padding-top: 10px;
         content: ' ';
@@ -103,9 +107,17 @@ html {
     // margin: 10% auto 0 auto;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(4, 25%);
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
     width: 80%;
     text-align: center;
+
+    @media (max-width: 960px) {
+      grid-gap: 30px;
+
+      .list-items span {
+        margin-top: 10px;
+      }
+    }
   }
 
   li {
@@ -160,8 +172,6 @@ html {
   }
 }
 
-
-
 @keyframes show-x {
   from {
     opacity: 0;
@@ -173,7 +183,7 @@ html {
   }
 }
 
-// Only show close button and reveal menu items when overlay has 
+// Only show close button and reveal menu items when overlay has
 // class of .show-menu added via JS
 .overlay-nav.show-menu {
   .close-btn {
